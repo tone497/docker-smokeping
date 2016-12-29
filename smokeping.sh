@@ -1,20 +1,4 @@
 #!/usr/bin/env bash
-#===============================================================================
-#          FILE: smokeping.sh
-#
-#         USAGE: ./smokeping.sh
-#
-#   DESCRIPTION: Entrypoint for smokeping docker container
-#
-#       OPTIONS: ---
-#  REQUIREMENTS: ---
-#          BUGS: ---
-#         NOTES: ---
-#        AUTHOR: David Personette (dperson@gmail.com),
-#  ORGANIZATION:
-#       CREATED: 2014-10-16 02:56
-#      REVISION: 1.0
-#===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
 
@@ -26,9 +10,9 @@ set -o nounset                              # Treat unset variables as an error
 gmail() { local user="$1" pass="$2" aliasfile=/etc/ssmtp/revaliases \
             conf=/etc/ssmtp/ssmtp.conf
     sed -i '/^root/d' $aliasfile
-    echo "root:${user}+smokeping@gmail.com:smtp.gmail.com:587" >>$aliasfile
+    echo "root:${user}+admin@localhost.com:smtp.gmail.com:587" >>$aliasfile
 
-    sed -i 's|^\(root=\).*|\1'"$user"'+smokeping@gmail.com|
+    sed -i 's|^\(root=\).*|\1'"$user"'+admin@localhost.com|
                 s|^\(mailhub=\).*|\1smtp.gmail.com:587|
                 s|^#*\(rewriteDomain=\).*|\1gmail.com|
                 s|^\(hostname=\).*|\1localhost|

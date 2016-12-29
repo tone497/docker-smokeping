@@ -1,5 +1,4 @@
 FROM debian:stretch
-MAINTAINER David Personette <dperson@gmail.com>
 
 # Install lighttpd and smokeping
 RUN export DEBIAN_FRONTEND='noninteractive' && \
