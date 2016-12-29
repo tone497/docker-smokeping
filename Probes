@@ -1,0 +1,24 @@
+*** Probes ***
+
++ FPing
+
+binary = /usr/bin/fping
+
++ EchoPingHttp
+
+binary = /usr/bin/echoping
+
++ EchoPingHttps
+
+binary = /usr/bin/echoping
+
++ DNS
+binary = /usr/bin/dig
+lookup = 168.95.1.1
+pings = 5
+step = 180
+
++ Curl
+binary = /usr/bin/curl
+step = 60
+urlformat = http://%host%/
