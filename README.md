@@ -10,4 +10,4 @@ run go.sh or
 
 ##[dperson/smokeping](https://github.com/dperson/smokeping)
 
-##[Example configs](http://oss.oetiker.ch/smokeping/doc/smokeping_examples.en.html
+##[Example configs](http://oss.oetiker.ch/smokeping/doc/smokeping_examples.en.html)
