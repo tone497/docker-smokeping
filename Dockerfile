@@ -1,4 +1,5 @@
 FROM debian:stretch
+MAINTAINER David Personette <dperson@gmail.com>
 
 # Install lighttpd and smokeping
 RUN export DEBIAN_FRONTEND='noninteractive' && \
@@ -48,9 +49,10 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     unset conf dir header && \
     lighttpd-enable-mod cgi && \
     lighttpd-enable-mod fastcgi && \
-    [ -d /var/cache/smokeping ] || mkdir -p /var/cache/smokeping && \
-    [ -d /var/lib/smokeping ] || mkdir -p /var/lib/smokeping && \
-    [ -d /run/smokeping ] || mkdir -p /run/smokeping && \
+    [[ -d /var/cache/smokeping ]] || mkdir -p /var/cache/smokeping && \
+    [[ -d /var/lib/smokeping ]] || mkdir -p /var/lib/smokeping && \
+    [[ -d /run/smokeping ]] || mkdir -p /run/smokeping && \
+    [[ -d /var/www/cgi-bin ]] || rmdir /var/www/cgi-bin && \
     ln -s /usr/share/smokeping/www /var/www/smokeping && \
     ln -s /usr/lib/cgi-bin /var/www/ && \
     ln -s /usr/lib/cgi-bin/smokeping.cgi /var/www/smokeping/ && \
